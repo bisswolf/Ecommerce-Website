@@ -33,16 +33,25 @@ var fashion = mongoose.model("fashion", fashionSchema);
 // 	}
 // );
 // retriving data from database
-fashion.find({}, function (err, fa) {
-	if (err) {
-		console.log(err);
-	} else {
-		console.log(fa);
-	}
+
+app.get("/show", function (req, res) {
+	fashion.find({}, function (err, fa) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.render("frontpage.ejs", { fashions: fa });
+		}
+	});
 });
 
-app.get("/", function (req, res) {
-	res.render("frontpage.ejs");
+app.get("/show/:id", function (req, res) {
+	fashion.findById(req.params.id, function (err, data) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.render("show.ejs", { showw: data });
+		}
+	});
 });
 
 app.listen(3000, function () {
