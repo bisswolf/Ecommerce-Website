@@ -7,7 +7,8 @@ mongoose.connect("mongodb://localhost/fashionsite", {
 	useNewUrlParser: true,
 });
 
-app.use(BodyParser.urlencoded({ extended: true }));
+// app.use(BodyParser.urlencoded({ extended: true }));
+app.use("/static", express.static(__dirname + "/public"));
 
 //-----------------------------SCHEMA--------------------------
 
@@ -19,9 +20,9 @@ var fashion = mongoose.model("fashion", fashionSchema);
 
 // fashion.create(
 // 	{
-// 		name: "Blue shirt",
+// 		name: "Sweat Shirt",
 // 		image:
-// 			"https://ae01.alicdn.com/kf/HTB1myK.JwaTBuNjSszfq6xgfpXa9/New-Autumn-Fashion-Brand-Men-Clothes-Slim-Fit-Men-Long-Sleeve-Shirt-Men-Plaid-Cotton-Casual.jpg_640x640.jpg",
+// 			"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSU4Yo2SNUfUf-wIentZGz6S6b59LN016ufUCa4GwVpbK-NGOG&usqp=CAU",
 // 	},
 // 	function (err, fashion) {
 // 		if (err) {
@@ -32,24 +33,24 @@ var fashion = mongoose.model("fashion", fashionSchema);
 // 		}
 // 	}
 // );
-// retriving data from database
-
-app.get("/show", function (req, res) {
-	fashion.find({}, function (err, fa) {
-		if (err) {
-			console.log(err);
-		} else {
-			res.render("frontpage.ejs", { fashions: fa });
-		}
-	});
-});
 
 app.get("/show/:id", function (req, res) {
 	fashion.findById(req.params.id, function (err, data) {
 		if (err) {
 			console.log(err);
 		} else {
-			res.render("show.ejs", { showw: data });
+			res.render("show.ejs", { show: data });
+		}
+	});
+});
+
+// retriving data from database
+app.get("/show", function (req, res) {
+	fashion.find({}, function (err, fa) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.render("frontpage.ejs", { fashions: fa });
 		}
 	});
 });
