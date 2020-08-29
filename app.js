@@ -15,6 +15,7 @@ app.use("/static", express.static(__dirname + "/public"));
 var fashionSchema = new mongoose.Schema({
 	name: String,
 	image: String,
+	description: String,
 });
 var fashion = mongoose.model("fashion", fashionSchema);
 

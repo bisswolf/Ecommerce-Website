@@ -1,9 +1,24 @@
 .test {
 	text-transform: uppercase;
 	text-align: center;
-	color: darkblue;
+	color: yellow;
 }
 .sizing {
-	height: 388.02px;
-	width: 388.02px;
+	height: 544px;
+	width: 544px;
+}
+.flex-container {
+	display: flex;
+	flex-direction: row;
+}
+.colour {
+	background-color: rgb(3, 2, 65);
+	opacity: 0.75;
+}
+.sizer {
+	height: 544px;
+	width: 77em;
+	margin-right: -15em;
+}
+.descriptions {
 }

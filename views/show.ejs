@@ -1,8 +1,27 @@
 <%- include ('partials/header.ejs') %>
-<div class="container">
-	<h1 class="test">
-		<%= show.name%>
-	</h1>
-
-	<img src="<%= show.image %>" class="sizing" />
+<div
+	class="container"
+	style="margin-right: 3rem; margin-left: 3rem; margin-top: 0.4px;"
+>
+	<div class="d-flex justify-content-center">
+		<div class="flex-fill">
+			<img src="<%= show.image %>" class="sizing" />
+		</div>
+		<div class="colour flex-fill sizer">
+			<h1 class="test">
+				<%= show.name%>
+			</h1>
+			<p
+				style="
+					margin-top: 3em;
+					margin-left: 2em;
+					color: yellow;
+					font-size: 1.5rem;
+				"
+			>
+				<%= show.description%>
+			</p>
+		</div>
+	</div>
 </div>
+<br />
