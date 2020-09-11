@@ -9,6 +9,7 @@ mongoose.connect("mongodb://localhost/fashionsite", {
 
 // app.use(BodyParser.urlencoded({ extended: true }));
 app.use("/static", express.static(__dirname + "/public"));
+// app.use("/static", express.static("public"));
 
 //-----------------------------SCHEMA--------------------------
 
