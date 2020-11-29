@@ -57,6 +57,10 @@ app.get("/show", function (req, res) {
 	});
 });
 
+app.get("/about", function (req, res) {
+	res.render("about.ejs");
+});
+
 app.listen(3000, function () {
 	console.log("Server listening on port 3000");
 });
